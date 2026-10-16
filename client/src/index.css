@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-white/10;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-navy-950 text-white font-sans antialiased;
+    background-image: 
+      radial-gradient(ellipse at 20% 50%, rgba(0, 217, 255, 0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(124, 58, 237, 0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 80%, rgba(0, 255, 136, 0.02) 0%, transparent 50%);
+    min-height: 100vh;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-navy-900;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-cyan-800 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-cyan-600;
+  }
+
+  ::selection {
+    @apply bg-cyan-500/30 text-cyan-100;
+  }
+}
+
+@layer components {
+  /* Glass morphism card */
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-card;
+  }
+  
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300 hover:bg-white/8 hover:border-cyan-500/30 hover:shadow-glow-cyan;
+  }
+  
+  /* Primary button */
+  .btn-primary {
+    @apply relative inline-flex items-center gap-2 px-6 py-3 bg-cyan-gradient text-navy-950 font-semibold rounded-xl
+      transition-all duration-300 hover:scale-105 hover:shadow-glow-cyan active:scale-95
+      disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/20 text-white font-semibold rounded-xl
+      transition-all duration-300 hover:bg-white/10 hover:border-white/30 active:scale-95
+      disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .btn-danger {
+    @apply inline-flex items-center gap-2 px-4 py-2 bg-red-500/10 border border-red-500/30 text-red-400 font-medium rounded-lg
+      transition-all duration-300 hover:bg-red-500/20 hover:border-red-500/50 active:scale-95;
+  }
+  
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-4 py-2 text-white/70 font-medium rounded-lg
+      transition-all duration-300 hover:text-white hover:bg-white/5 active:scale-95;
+  }
+  
+  /* Form inputs */
+  .input-field {
+    @apply w-full px-4 py-3 bg-navy-800 border border-white/10 rounded-xl text-white placeholder-white/30
+      focus:outline-none focus:border-cyan-500/60 focus:ring-2 focus:ring-cyan-500/20
+      transition-all duration-200;
+  }
+  
+  /* Badges */
+  .badge-cyan {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-medium rounded-full;
+  }
+  
+  .badge-purple {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 bg-purple-brand/10 border border-purple-brand/30 text-purple-light text-xs font-medium rounded-full;
+  }
+  
+  .badge-green {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 bg-green-neon/10 border border-green-neon/30 text-green-neon text-xs font-medium rounded-full;
+  }
+  
+  .badge-red {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-medium rounded-full;
+  }
+  
+  /* Gradient text */
+  .text-gradient-cyan {
+    @apply bg-gradient-to-r from-cyan-400 to-cyan-200 bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-purple {
+    @apply bg-gradient-to-r from-purple-brand to-purple-light bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-multi {
+    @apply bg-gradient-to-r from-cyan-400 via-purple-light to-cyan-300 bg-clip-text text-transparent;
+  }
+  
+  /* Divider with glow */
+  .divider-glow {
+    @apply border-t border-white/10 relative;
+  }
+  
+  /* Stats card */
+  .stat-card {
+    @apply glass-card p-6 flex flex-col gap-2;
+  }
+  
+  /* Progress bar */
+  .progress-bar {
+    @apply h-2 bg-navy-700 rounded-full overflow-hidden;
+  }
+  
+  .progress-fill {
+    @apply h-full rounded-full transition-all duration-500;
+    background: linear-gradient(90deg, #00D9FF, #A855F7);
+  }
+  
+  /* Glow orb decorations */
+  .glow-orb {
+    @apply absolute rounded-full pointer-events-none blur-3xl opacity-20;
+  }
+}
+
+@layer utilities {
+  .bg-white\/8 {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+  
+  .animate-delay-100 { animation-delay: 0.1s; }
+  .animate-delay-200 { animation-delay: 0.2s; }
+  .animate-delay-300 { animation-delay: 0.3s; }
+  .animate-delay-400 { animation-delay: 0.4s; }
+  .animate-delay-500 { animation-delay: 0.5s; }
+}
